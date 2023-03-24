@@ -4,16 +4,7 @@ from pulp import *
 cap=150
 prodPoints=3
 needPoints=8
-xindex=np.zeros(24)
-a=range(0,prodPoints)
-a1=range(prodPoints)
-b=range(0,needPoints)
-b1=range(needPoints)
 
-xindex=[(a[i],b[j]) for j in b1 for i in a1]
-
-
-#print(xindex)
 needs=np.array([1600,610,330,170,130,130,120,90])/150 #Check sheets
 prod=np.array([930,1500,750])/150
 dist=np.array(
@@ -22,7 +13,7 @@ dist=np.array(
       [55,22,6,62,54,46,36,119]]) #helborg
 distV=dist.flatten()
 model=LpProblem("Transpor",LpMinimize)
-x=LpVariable.dicts("X",xindex,0,None,'Integer' )
+x=LpVariable.dicts("X",((i,j) for j in range(needPoints) for i in range(prodPoints)),0,None,'Integer')
 def funx(x):
     sum=0
     for i in range (8):
@@ -46,8 +37,11 @@ def sumCol(x,nbr):
 for i in range(8):
     model+=sumCol(x,i)==np.ceil(needs[i])
 solver_list = listSolvers(onlyAvailable=True)
-print(solver_list)
+
+
+
 model.solve(GLPK_CMD())
 print("Status:", LpStatus[model.status])
 for v in model.variables():
     print(v.name, "=", v.varValue)
+print("Stärcka ", model.objective.value(),"mil")
