@@ -5,8 +5,8 @@ cap=150
 prodPoints=3
 needPoints=8
 
-needs=np.array([1600,610,330,170,130,130,120,90])/cap #Check sheets
-prod=np.array([930,1500,750])/cap
+needs=np.array([1600,610,330,170,130,130,120,90]) #Check sheets
+prod=np.array([930,1500,750])
 dist=np.array(
     [[47,23,14,54,46,37,28,111], #älm
       [47,1,27,55,38,28,27,98], #gbg
@@ -44,4 +44,4 @@ model.solve(GLPK_CMD())
 print("Status:", LpStatus[model.status])
 for v in model.variables():
     print(v.name, "=", v.varValue)
-print("Stärcka ", model.objective.value(),"mil")
+print("Stärcka ", model.objective.value()/150,"mil")
