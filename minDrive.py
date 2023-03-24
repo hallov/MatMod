@@ -44,5 +44,8 @@ solver_list = listSolvers(onlyAvailable=True)
 model.solve(GLPK_CMD())
 print("Status:", LpStatus[model.status])
 for v in model.variables():
-    print(v.name, "=", (v.varValue/150))
-print("Stärcka ", model.objective.value(),"mil")
+    if (np.round(v.varValue/150)==0):
+        print(v.name, "=", np.round(v.varValue/150))
+    else:
+        print(v.name, "=", np.round(v.varValue/150)," 1/",np.round(np.abs(1/((v.varValue/150)-np.round(v.varValue/150)))))
+print("Stärcka ", model.objective.value(),"mil avg")
