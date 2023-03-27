@@ -43,8 +43,8 @@ for i in range(8):  #lägger till kraven hos grossisterna
 model.solve(GLPK_CMD()) #löser problemt
 print("Status:", LpStatus[model.status]) #utdata
 for v in model.variables():
-    if (np.round(v.varValue/150)==0):
-        print(v.name, "=", np.round(v.varValue/150))
+    if (np.round(v.varValue/cap)==0):
+        print(v.name, "=", np.round(v.varValue/cap))
     else:
-        print(v.name, "=", np.round(v.varValue/150)," 1/",np.round(np.abs(1/((v.varValue/150)-np.round(v.varValue/150)))))
+        print(v.name, "=", np.round(v.varValue/cap)," 1/",np.round(np.abs(1/((v.varValue/cap)-np.round(v.varValue/150)))))
 print("Stärcka ", model.objective.value(),"mil avg")
