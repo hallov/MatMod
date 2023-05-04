@@ -2,7 +2,7 @@ import numpy as np
 import itertools
 constants=np.array([404])
 varibles=np.array([404,404,404,404])
-
+#obbs funkar inte
 def addData2(px,py,alpha,teta,constants,varibles,type): #lägger till data till ekv system 
     zeros=np.array([0,0])
     for i in range (len(alpha)):
@@ -19,7 +19,7 @@ def addData2(px,py,alpha,teta,constants,varibles,type): #lägger till data till 
     return constants, varibles
 def dataHantering(i,n,constants,varibles): #hanterar vilken data som läggs till samt testar datan
     constants,varibles=addData2(0,0,([np.pi/2,np.pi/3]),0,constants,varibles,i)
-    constants,varibles=addData2(0.5,0,([np.pi*2/3,np.pi/2]),0,constants,varibles,n)
+    constants,varibles=addData2(0.5,0,([np.pi*2/3,np.pi/4]),0,constants,varibles,n)
     constants=np.delete(constants,0,0)
     varibles=np.delete(varibles,0,0)
     try:
