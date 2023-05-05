@@ -1,2 +1,2 @@
 # MatMod
-För koden ska funka behövs numpy,Pulp och GLPK var nedladdat
+För koden ska funka behövs numpy,Pulp,sympy och GLPK var nedladdat
