@@ -2,10 +2,10 @@ import numpy as np # Importera biblioteket numpy och kalla det np
 import itertools # Importera modulen itertools för att generera permutationer av en lista
 from sympy import Symbol, nsolve # Importera Symbol och nsolve från sympy
 from sympy import* # Importera alla andra moduler från sympy
-
+import matplotlib.pyplot as plt
 # Skapa en lista av koordinater för fyra punkter
-pos=[[0,1,-2,4],
-     [2,0,-1,-3]]
+pos=[[0,1,-2,4], #x
+     [2,0,-1,-3]] #y
 
 # Skapa en lista av vinklar
 angles=[pi*3/2,atan(1/2)+pi/2,pi+atan(4/3),0]
@@ -34,9 +34,19 @@ def test(combo,pos,angles):
         return 
     return 
 
-n=4 
+n=4 #antal sensroer
 vectors = [list(perm) for perm in itertools.permutations(range(n))] # Skapa en lista av alla möjliga permutationer av en lista med n element
 
-for combo in vectors: # Loopa genom alla möjliga permutationer
-    print(combo) 
-    test(combo,pos,angles) # Testar om permutationen har en lösning
+#for combo in vectors: # Loopa genom alla möjliga permutationer
+    #print(combo) 
+    #test(combo,pos,angles) # Testar om permutationen har en lösning
+plt.plot(pos[0],pos[1],'xr',label="sensor")
+plt.grid()
+plt.legend()
+plt.show()
+plt.plot(pos[0],pos[1],'xr',label="Sensor")
+
+plt.grid(zorder=0)
+plt.arrow(0,0,0,0.05,width=0.06,label="Truck",zorder=2)
+plt.legend()
+plt.show()
