@@ -40,10 +40,10 @@ def dataHantering(combo,eqn): #hanterar vilken data som läggs till samt testar 
 perms = list(itertools.permutations([1, 2, 3]))  #fixar alla kominationer av matriser mha magi
 matrices = list(itertools.product(perms, repeat=3))
 result = [m for m in matrices if all(row.count(1)==1 and row.count(2)==1 and row.count(3)==1 for row in m)] #ger oss bara möjliga
-# for combo in result:   
-#     print(combo)
-#     dataHantering(combo,eqn)
-#     eqn=[]
+for combo in result:   
+    print(combo)
+    dataHantering(combo,eqn)
+    eqn=[]
 plt.arrow(0,0,0.01,0,width=0.06,label="Truck",zorder=2,head_length=0.1)
 plt.arrow(-0.5,0,0.01,0,width=0.06,zorder=2,head_length=0.1)
 plt.arrow(0.5,0,0.01,0,width=0.06,zorder=2,head_length=0.1)
