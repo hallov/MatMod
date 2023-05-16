@@ -10,7 +10,7 @@ pos=[[0,1,-2], #x
      [2,0,-1]] #y
 
 # Skapa en lista av vinklar
-angles=[pi*3/2,atan(1/2)+pi/2,0]
+angles=[pi*3/2,atan(1/2)+pi/2,pi+atan(4/3)]
 
 # Skapa tre symboler för okända variabler
 px=Symbol('px') 
@@ -49,8 +49,8 @@ plt.plot(pos[0],pos[1],'xr',label="sensor")
 plt.grid(zorder=0)
 plt.arrow(10,10, 0.05, 0.05 ,width=0.06,label="truck", zorder=2)
 #plt.plot('b',label="Truck")
-plt.xlim(-2.2,1.3)
-plt.ylim(-2.3,2.6)
+plt.xlim(-4.2,2.3)
+plt.ylim(-1.5,2.6)
 plt.legend()
 plt.show()
 # plt.plot(pos[0],pos[1],'xr',label="Sensor")
